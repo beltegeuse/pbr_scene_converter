@@ -2,7 +2,7 @@
 
 import xml.etree.ElementTree as ET
 import numpy as np
-from Directives import *
+from .Directives import *
 
 class MitsubaLoader:
 

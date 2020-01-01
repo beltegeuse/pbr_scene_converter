@@ -519,7 +519,7 @@ class MitsubaToLuxRender:
                 m_rot[2][2] = -m_rot[2][2]
                 m_rot[3][3] = 1
 
-                print m_rot
+                print(m_rot)
 
                 #m_T = np.transpose(m)
 

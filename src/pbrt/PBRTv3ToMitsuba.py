@@ -355,7 +355,7 @@ class PBRTv3ToMitsuba:
 
     def lightDescriptionToMitsuba(self, scene):
 
-        print scene.lights
+        print(scene.lights)
         for light in scene.lights:
             if light.type == 'distant':
                 emitter = ET.SubElement(self.sceneElement, 'emitter', type='sun')

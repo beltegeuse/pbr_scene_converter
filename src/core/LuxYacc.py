@@ -1,10 +1,10 @@
 import sys
 import operator
-import LuxLex
+import core.LuxLex
 import ply.yacc as yacc
 
 # Get the token map
-tokens = LuxLex.tokens
+tokens = core.LuxLex.tokens
 
 start = 'scene'
 
@@ -163,7 +163,7 @@ def p_empty(t):
     'empty : '
 
 def p_error(t):
-    print str(t) + "Whoa. We're hosed"
+    print(str(t) + "Whoa. We're hosed")
 
 import profile
 

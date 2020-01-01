@@ -1,10 +1,10 @@
 import sys
 import operator
-import PBRTv3Lex
+import core.PBRTv3Lex
 import ply.yacc as yacc
 
 # Get the token map
-tokens = PBRTv3Lex.tokens
+tokens = core.PBRTv3Lex.tokens
 
 start = 'scene'
 
@@ -164,7 +164,7 @@ def p_empty(t):
     'empty : '
 
 def p_error(t):
-    print str(t) + "Whoa. We're hosed"
+    print(str(t) + "Whoa. We're hosed")
 
 import profile
 
@@ -174,7 +174,8 @@ parser = yacc.yacc()
 def parse(data, debug=0):
     parser.error = 0
     p = parser.parse(data, debug=debug)
-    if parser.error:
+    if parser.error != 0:
+        print("Error", parser.error)
         return None
     return p
 

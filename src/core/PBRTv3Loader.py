@@ -1,20 +1,22 @@
-import PBRTv3Lex
-import PBRTv3Yacc
-from Directives import *
+import core.PBRTv3Lex
+import core.PBRTv3Yacc
+from .Directives import *
 import sys
 
 class PBRTv3Loader:
 
     def importFile(self, filename):
         data = open(filename).read()
-        sceneStructure = PBRTv3Yacc.parse(data)
+        print(data)
+        sceneStructure = core.PBRTv3Yacc.parse(data)
 
         return sceneStructure
 
     def loadScene(self, sceneStructure):
         scene = Scene()
 
-        if len(sceneStructure) == 1:
+
+        if sceneStructure and len(sceneStructure) == 1:
             if sceneStructure[0][0] in ['Integrator', 'Sampler', 'Film', 'Filter', 'Camera', 'Transform']:
                 scene = self.loadDirectives(sceneStructure[0], scene)
             else:

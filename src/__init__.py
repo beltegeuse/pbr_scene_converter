@@ -15,11 +15,11 @@ if __name__ == '__main__':
 	output = 'scene'
 
 	if len(sys.argv) <= 1:
-		print 'Please call PBR Scene converter using the following parameters: -s [source renderer] -d [destination render] -f [input filename] <option: -o [output filename]>'
+		print('Please call PBR Scene converter using the following parameters: -s [source renderer] -d [destination render] -f [input filename] <option: -o [output filename]>')
 	elif not '-f' in sys.argv:
-		print 'No input file specified. Please call PBR Scene converter using the following parameters: -s [source renderer] -d [destination render] -f [input filename] -o [output filename]'
+		print('No input file specified. Please call PBR Scene converter using the following parameters: -s [source renderer] -d [destination render] -f [input filename] -o [output filename]')
 	elif not '-s'in sys.argv:
-		print 'No source renderer specified. Please call PBR Scene Converter with the following parameters: -s [source renderer] -d [destination render] -f [input filename] -o [output filename]'
+		print('No source renderer specified. Please call PBR Scene Converter with the following parameters: -s [source renderer] -d [destination render] -f [input filename] -o [output filename]')
 	
 	else:
 		for i in range(1,len(sys.argv)):
@@ -48,7 +48,7 @@ if __name__ == '__main__':
 				ml.MitsubaToLuxRender(loader.scene, output)
 
 			else:
-				print 'The output renderer informed is not valid. For a mitsuba input file, please type -d pbrt or -d lux.\n'
+				print('The output renderer informed is not valid. For a mitsuba input file, please type -d pbrt or -d lux.\n')
 
 		elif source == 'pbrt':
 			loader = pbrt.PBRTv3Loader(filename)
@@ -60,11 +60,11 @@ if __name__ == '__main__':
 			# 	pl.PBRTv3ToLuxRender(loader.scene, output)
 
 			else:
-				print 'The output renderer informed is not valid. For a pbrt input file, please type -d mitsuba.\n'
+				print('The output renderer informed is not valid. For a pbrt input file, please type -d mitsuba.\n')
 
 		elif source == 'lux':
 			if filename.endswith('.lxs') or filename.endswith('.lxm') or filename.endswith('.lxo'):
-				print 'For lux sources, please inform the scene directory.'
+				print('For lux sources, please inform the scene directory.')
 
 			else:
 				loader = lux.LuxRenderLoader(filename)
@@ -73,9 +73,9 @@ if __name__ == '__main__':
 					lp.LuxRenderToPBRTv3(loader.scene, output)
 
 				else:
-					print 'The output renderer informed is not valid. For a lux input file, please type -d pbrt.\n'
+					print('The output renderer informed is not valid. For a lux input file, please type -d pbrt.\n')
 		else:
-			print 'The source renderer informed is not valid. Current valid source renderers are: pbrt, mitsuba. \n'
+			print('The source renderer informed is not valid. Current valid source renderers are: pbrt, mitsuba. \n')
 
 		# convert
 		

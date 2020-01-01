@@ -109,10 +109,10 @@ class LuxRenderToPBRTv3:
                     materialTextureRef[material.id] = id
                     output += '\tTexture "' + id + '" "spectrum" '
 
-                print material.texture.type
+                print(material.texture.type)
 
                 if material.texture.type in ltpbrt.textureType:
-                    print material.texture.type
+                    print(material.texture.type)
                     type = ltpbrt.textureType[material.texture.type]
                     output += '"' + type + '" '
             
@@ -244,7 +244,7 @@ class LuxRenderToPBRTv3:
                 indices = shape.params['indices'].value
                 output += '"integer indices" [ ' 
 
-                print indices
+                print(indices)
                 for i in range(0, len(indices)):
                     output += str(indices[i])
                     output += ' '

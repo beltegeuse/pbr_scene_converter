@@ -1,8 +1,8 @@
 import sys
 import glob
-import LuxLex
-import LuxYacc
-from Directives import *
+import core.LuxLex
+import core.LuxYacc
+from .Directives import *
 
 class LuxRenderLoader:
     def assembleSingleFile(self, directory):
